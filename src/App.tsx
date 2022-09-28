@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.scss';
-import {Route, Routes} from "react-router-dom";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import Login from "./pages/Login/Login";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/*" element={<Home/>}/>
+        <Route path="/register" element={<CreateAccount/>}/>
+        <Route path="/*" element={<NotFound/>}/>
       </Routes>
     </div>
   );

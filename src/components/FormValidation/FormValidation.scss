@@ -1,0 +1,30 @@
+.form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  & .form__email {
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  & .form__password {
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  & .form__button {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  & .form__email-error {
+    font-size: 16px;
+    color: rgba(255, 0, 0, 0.8);
+    margin-bottom: 10px;
+  }
+  & .form__password-error {
+    font-size: 16px;
+    color: rgba(255, 0, 0, 0.8);
+    margin-bottom: 10px;
+  }
+}
