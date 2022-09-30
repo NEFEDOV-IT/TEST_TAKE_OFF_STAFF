@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../types/types";
 import { getStorage, saveStorage, USERS_DATA } from "../../utils/storage";
 
-interface initial {
+interface IUsersSettings {
   users: IUser[] | [],
   searchValue: string,
 }
 
-const initialState: initial = {
+const initialState: IUsersSettings = {
   users: getStorage(USERS_DATA) || [],
   searchValue: '',
 }
@@ -19,7 +19,7 @@ const usersSlice = createSlice({
   reducers: {
     addUsers(state, action) {
       saveStorage(USERS_DATA, action.payload)
-      return state.users = action.payload
+      state.users = action.payload
     },
     removeUser(state, action) {
       const filterState = state.users.filter(item => item.id !== action.payload)

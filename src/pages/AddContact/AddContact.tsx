@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect } from 'react';
+import React, { FC, MouseEvent, useEffect } from 'react';
 import { Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
@@ -7,7 +7,7 @@ import { AddContactSchema } from "../../utils/validate";
 import './AddContact.scss'
 import { getUser } from "../../utils/selectors";
 
-const AddContact = () => {
+const AddContact: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { isLogged } = useAppSelector(getUser)

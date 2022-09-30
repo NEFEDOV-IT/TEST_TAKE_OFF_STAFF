@@ -1,10 +1,15 @@
 .create-account {
-  & .create-account__title {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  & .create-account__text {
-    font-size: 18px;
+  & .create-account__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .create-account__body-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    & .create-account__body-text {
+      font-size: 18px;
+    }
   }
 }

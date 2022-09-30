@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './HomeHeader.scss'
 import { removeUserAccount } from "../../../store/auth.slice/auth.slice";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../../hooks/hooks";
 import { getUser } from "../../../utils/selectors";
 
-const HomeHeader = () => {
+const HomeHeader: FC = () => {
   const { email } = useAppSelector(getUser)
   const navigate = useNavigate()
   const dispatch = useDispatch()

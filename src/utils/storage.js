@@ -2,8 +2,8 @@ export const AUTH_ID = 'id'
 export const AUTH_EMAIL = 'email'
 export const USERS_DATA = 'usersData'
 
-export const saveStorage = (name, id) => {
-  return localStorage.setItem(name, JSON.stringify(id))
+export const saveStorage = (name, value) => {
+  return localStorage.setItem(name, JSON.stringify(value))
 }
 
 export const getStorage = (name) => {

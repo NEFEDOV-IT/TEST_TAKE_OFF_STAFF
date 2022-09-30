@@ -1,7 +1,6 @@
 export const getUser = state => state.auth;
 export const getUsers = state => {
-  const users = state.users.users
-  const searchValue = state.users.searchValue
+  const { users, searchValue } = state.users
 
   if (!searchValue) {
     return users;

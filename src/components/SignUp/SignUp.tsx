@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { addUserAccount } from "../../store/auth.slice/auth.slice";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
 import { FormGeneral } from "../FormGeneral/FormGeneral";
 
-const SignUp = () => {
+const SignUp: FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -20,7 +20,7 @@ const SignUp = () => {
         }))
         navigate('/login')
       })
-      .catch(console.error)
+      .catch(alert)
   }
 
   return (

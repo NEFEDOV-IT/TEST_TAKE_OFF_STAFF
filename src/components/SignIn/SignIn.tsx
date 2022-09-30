@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { addUserAccount } from "../../store/auth.slice/auth.slice";
+import { addUserAccount, userSignIn } from "../../store/auth.slice/auth.slice";
 import { useAppDispatch } from "../../hooks/hooks";
 import { FormGeneral } from "../FormGeneral/FormGeneral";
 import { AUTH_EMAIL, AUTH_ID, saveStorage } from "../../utils/storage";
 
-const SignIn = () => {
+const SignIn: FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -21,6 +21,7 @@ const SignIn = () => {
           email: response.user.email,
           id: response.user.uid,
         }))
+        dispatch(userSignIn())
         navigate('/')
       })
       .catch(() => alert('Error! Check your email or password.'))

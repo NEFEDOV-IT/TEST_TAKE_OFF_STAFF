@@ -15,6 +15,8 @@ const authSlice = createSlice({
     addUserAccount(state, action) {
       state.email = action.payload.email;
       state.id = action.payload.id;
+    },
+    userSignIn(state) {
       state.isLogged = true;
     },
     removeUserAccount(state) {
@@ -27,5 +29,5 @@ const authSlice = createSlice({
   }
 })
 
-export const { addUserAccount, removeUserAccount } = authSlice.actions
+export const { addUserAccount, removeUserAccount, userSignIn } = authSlice.actions
 export const authReducer = authSlice.reducer

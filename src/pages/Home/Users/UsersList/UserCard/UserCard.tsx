@@ -3,21 +3,27 @@ import Input from "../../../../../components/Input/Input";
 import { IUser } from "../../../../../types/types";
 import { useAppDispatch } from "../../../../../hooks/hooks";
 import { editingUser, removeUser } from "../../../../../store/users.slice/users.slice";
+import { AddContactSchema } from "../../../../../utils/validate";
 
 interface IUserCard {
   user: IUser;
 }
 
-const UserCard: FC<IUserCard> = ({ user}) => {
+const UserCard: FC<IUserCard> = ({ user }) => {
   const dispatch = useAppDispatch()
   const [read, setRead] = useState<boolean>(true)
-  const [editUser, setEditUser] = useState(user)
+  const [editUser, setEditUser] = useState<IUser>(user)
 
   function changeRead() {
     setRead(!read)
   }
 
-  function handleContinue() {
+  async function handleContinue() {
+    await AddContactSchema.validate(editUser)
+      .catch(e => {
+        alert(e.message)
+        throw new Error('Error Validation')
+      })
     changeRead()
     dispatch(editingUser(editUser))
   }
@@ -60,10 +66,12 @@ const UserCard: FC<IUserCard> = ({ user}) => {
       </div>
       <div className="li__user-buttons">
         <button onClick={deleteUser} className='li__button-delete'>Delete</button>
-        {read ?
-          <button onClick={changeRead} className='li__button-edit'>Edit</button>
-        :
-          <button onClick={handleContinue} className='li__button-edit'>Continue</button>}
+        {
+          read ?
+            <button onClick={changeRead} className='li__button-edit'>Edit</button>
+            :
+            <button onClick={handleContinue} className='li__button-edit'>Continue</button>
+        }
       </div>
     </li>
   );

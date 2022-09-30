@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import UsersList from "./UsersList/UsersList";
 import './Users.scss'
 import UsersHeader from "./UsersHeader/UsersHeader";
 
-const Users = () => {
+const Users: FC = () => {
 
   return (
     <div className="users">

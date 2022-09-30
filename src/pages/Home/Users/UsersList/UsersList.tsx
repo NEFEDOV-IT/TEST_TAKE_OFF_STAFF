@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { fetchUsers } from "../../../../store/asyncActions/asyncActions";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
 import { getUsers } from "../../../../utils/selectors";
@@ -7,7 +7,7 @@ import './UsersList.scss'
 import UserCard from "./UserCard/UserCard";
 import { getStorage, USERS_DATA } from "../../../../utils/storage";
 
-const UsersList = () => {
+const UsersList: FC = () => {
   const users = useAppSelector(getUsers)
   const dispatch = useAppDispatch()
 

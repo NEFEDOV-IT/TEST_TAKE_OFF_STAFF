@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from "react-router-dom";
 import './UsersHeader.scss'
 
-const UsersHeader = () => {
+const UsersHeader: FC = () => {
   const navigate = useNavigate()
 
   function addContact() {
