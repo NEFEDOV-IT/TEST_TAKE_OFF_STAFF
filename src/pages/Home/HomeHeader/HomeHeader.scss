@@ -1,0 +1,17 @@
+.home__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  & .home__header-title {
+
+  }
+  & .home__header-button {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    & span {
+      font-weight: bold;
+    }
+  }
+}

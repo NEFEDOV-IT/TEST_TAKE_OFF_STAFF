@@ -1,0 +1,17 @@
+.users__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+
+  & .users__header-title {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  & .users__header-button-add {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+}

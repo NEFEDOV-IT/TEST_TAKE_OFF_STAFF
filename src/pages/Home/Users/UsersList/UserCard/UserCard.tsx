@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
-import Input from "../../../../components/Input/Input";
-import { IUser } from "../../../../types/types";
-import { useAppDispatch } from "../../../../hooks/hooks";
-import { editingUser, removeUser } from "../../../../store/users.slice/users.slice";
+import Input from "../../../../../components/Input/Input";
+import { IUser } from "../../../../../types/types";
+import { useAppDispatch } from "../../../../../hooks/hooks";
+import { editingUser, removeUser } from "../../../../../store/users.slice/users.slice";
 
 interface IUserCard {
   user: IUser;

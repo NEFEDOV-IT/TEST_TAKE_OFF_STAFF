@@ -1,14 +1,22 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, useEffect } from 'react';
 import { Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { addContact } from "../../store/users.slice/users.slice";
 import { AddContactSchema } from "../../utils/validate";
 import './AddContact.scss'
+import { getUser } from "../../utils/selectors";
 
 const AddContact = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const { isLogged } = useAppSelector(getUser)
+
+  useEffect(() => {
+    if (!isLogged) {
+      navigate('/register')
+    }
+  })
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
