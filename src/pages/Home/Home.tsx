@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useDispatch} from "react-redux";
-import { removeUser } from "../../store/auth.slice/auth.slice";
-import { getUser } from "../../selectors";
+import { useDispatch } from "react-redux";
+import { removeUserAccount } from "../../store/auth.slice/auth.slice";
+import { getUser } from "../../utils/selectors";
 import { useAppSelector } from "../../hooks/hooks";
-import UsersInfo from "./UsersInfo";
+import UsersList from "./UsersList/UsersList";
+import './Home.scss'
 
 const Home = () => {
   const { email, isLogged } = useAppSelector(getUser)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  function handleCLick() {
+    dispatch(removeUserAccount())
+    navigate('/login')
+  }
 
   useEffect(() => {
     if (!isLogged) {
@@ -19,17 +25,22 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Hello World!</h1>
-      <button
-        onClick={() => {
-          dispatch(removeUser())
-          navigate('/register')
-        }}
-      >
-        Log out from {email}
-      </button>
+      <div className="container">
+        <div className="home">
+          <div className="home__body">
+            <h1 className='home__title'>Personal Area</h1>
+            <button
+              className='home__button'
+              onClick={handleCLick}
+            >
+              Log out from <span>{email}</span>
+            </button>
+          </div>
+          <hr/>
 
-      <UsersInfo/>
+          <UsersList/>
+        </div>
+      </div>
     </main>
   )
 };

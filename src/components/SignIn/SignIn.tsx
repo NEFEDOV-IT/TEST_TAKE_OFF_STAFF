@@ -1,10 +1,10 @@
 import React from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../../store/auth.slice/auth.slice";
+import { addUserAccount } from "../../store/auth.slice/auth.slice";
 import { useAppDispatch } from "../../hooks/hooks";
-import { FormValidation } from "../FormValidation/FormValidation";
-import { AUTH_EMAIL, AUTH_ID, saveAuthStorage } from "../../storage";
+import { FormGeneral } from "../FormGeneral/FormGeneral";
+import { AUTH_EMAIL, AUTH_ID, saveStorage } from "../../utils/storage";
 
 const SignIn = () => {
   const dispatch = useAppDispatch()
@@ -15,9 +15,9 @@ const SignIn = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(response => {
-        saveAuthStorage(AUTH_EMAIL, response.user.email)
-        saveAuthStorage(AUTH_ID, response.user.uid)
-        dispatch(addUser({
+        saveStorage(AUTH_EMAIL, response.user.email)
+        saveStorage(AUTH_ID, response.user.uid)
+        dispatch(addUserAccount({
           email: response.user.email,
           id: response.user.uid,
         }))
@@ -28,7 +28,7 @@ const SignIn = () => {
 
   return (
     <>
-      <FormValidation title='Sign in' handleClick={handleSignIn}/>
+      <FormGeneral title='Sign in' handleClick={handleSignIn}/>
     </>
   );
 };

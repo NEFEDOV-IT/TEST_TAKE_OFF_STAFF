@@ -1,9 +1,9 @@
 import React from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { addUser } from "../../store/auth.slice/auth.slice";
+import { addUserAccount } from "../../store/auth.slice/auth.slice";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
-import { FormValidation } from "../FormValidation/FormValidation";
+import { FormGeneral } from "../FormGeneral/FormGeneral";
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -14,7 +14,7 @@ const SignUp = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(response => {
-        dispatch(addUser({
+        dispatch(addUserAccount({
           email: response.user.email,
           id: response.user.uid,
         }))
@@ -25,7 +25,7 @@ const SignUp = () => {
 
   return (
     <>
-      <FormValidation title='Sign Up' handleClick={handleSignUp}/>
+      <FormGeneral title='Sign Up' handleClick={handleSignUp}/>
     </>
   );
 };

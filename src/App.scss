@@ -9,6 +9,7 @@ body {
 }
 
 .app {
+  padding: 10px 0;
   background-color: #282c34;
   color: #fff;
   text-align: center;
@@ -30,4 +31,10 @@ body {
 
 .link {
   color: #61dafb;
+}
+
+.error {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: rgba(255, 0, 0, 0.8);
 }

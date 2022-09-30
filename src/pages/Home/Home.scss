@@ -1,0 +1,23 @@
+.home {
+  & .home__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    & .home__title {
+
+    }
+    & .home__button {
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 4px;
+      & span {
+        font-weight: bold;
+      }
+    }
+  }
+  & hr {
+    background-color: #fff;
+    height: 1px;
+  }
+}

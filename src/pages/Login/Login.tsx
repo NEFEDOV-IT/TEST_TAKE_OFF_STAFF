@@ -1,9 +1,20 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import SignIn from "../../components/SignIn/SignIn";
 import './Login.scss'
+import { useAppSelector } from "../../hooks/hooks";
+import { getUser } from "../../utils/selectors";
 
 const Login = () => {
+  const { isLogged } = useAppSelector(getUser)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isLogged) {
+      navigate('/')
+    }
+  })
+
   return (
     <main>
       <div className="login">

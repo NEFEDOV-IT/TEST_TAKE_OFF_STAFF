@@ -1,0 +1,24 @@
+.contact {
+  & h1 {
+    margin-bottom: 10px;
+  }
+
+  .contact__form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    & .contact__form-username, .contact__form-name,
+    .contact__form-phone, .contact__form-email {
+      height: 30px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    & .contact__form-button, .contact__form-button-submit {
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+}

@@ -7,8 +7,8 @@ const NotFound: FC = () => {
       <h1>Error 404</h1>
       Page not found!
       <p>Already have an account?<br/>
-        <Link to='/login'>Sign in</Link><br/>
-        or <Link to='/register'>Register</Link>
+        <Link className='link' to='/login'>Sign in</Link><br/>
+        or <Link className='link' to='/register'>Register</Link>
       </p>
     </div>
   );

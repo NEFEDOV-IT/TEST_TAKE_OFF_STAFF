@@ -1,6 +1,6 @@
-export interface IUser {
+export interface IUserAccount {
   email: string | null,
-  id: string | null,
+  id: number | null,
   isLogged: boolean,
 }
 
@@ -9,10 +9,10 @@ export interface IForm {
   handleClick: (email: string, password: string) => void;
 }
 
-export interface IUsers {
-  login: string;
+export interface IUser {
+  phone: number | string;
   email: string;
   name: string;
-  id: string;
-  $type: string;
+  id: number;
+  username: string;
 }
