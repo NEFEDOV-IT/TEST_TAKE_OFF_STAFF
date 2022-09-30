@@ -2,6 +2,7 @@
   "name": "take_off_staff",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nefedov-it.ru/_sites/test_take_off_staff",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@types/node": "^16.11.62",

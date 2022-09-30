@@ -19,7 +19,7 @@ const HomeHeader: FC = () => {
   return (
     <>
       <div className="home__header">
-        <h1 className='home__header-title'>Personal Area</h1>
+        <h1 className='home__header-title'>Personal account</h1>
         <button
           className='home__header-button'
           onClick={handleCLick}

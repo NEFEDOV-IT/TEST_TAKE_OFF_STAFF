@@ -5,6 +5,7 @@ import { useAppSelector } from "../../hooks/hooks";
 import Users from "./Users/Users";
 import HomeHeader from "./HomeHeader/HomeHeader";
 import SearchUser from "./SearchUser/SearchUser";
+import './Home.scss'
 
 const Home: FC = () => {
   const { isLogged } = useAppSelector(getUser)
